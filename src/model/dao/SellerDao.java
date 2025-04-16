@@ -7,8 +7,9 @@ import java.util.List;
 
 public interface SellerDao {
 
-    void insert(Seller obj);
-    void delete(Seller obj);
+    void insert(Seller seller);
+    void update(Seller seller);
+    void delete(Seller seller);
     void deleteById(Integer id);
     Seller findById(Integer id);
     List<Seller> findAll();
