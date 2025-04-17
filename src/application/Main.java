@@ -1,5 +1,6 @@
 package application;
 
+import model.dao.DepartmentDao;
 import model.dao.FactoryDao;
 import model.dao.SellerDao;
 import model.dao.impl.SellerDaoJDBC;
@@ -11,8 +12,12 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        SellerDao sellerDao = FactoryDao.createSellerDao();
+        DepartmentDao departmentDao = FactoryDao.createDepartmentDao();
 
+        List<Department> departmentList = departmentDao.findAll();
 
+        for (Department d : departmentList) {
+            System.out.println(d);
+        }
     }
 }
