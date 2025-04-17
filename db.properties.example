@@ -1,7 +1,8 @@
-# Copie este arquivo e renomeie para 'db.properties'
-# Preencha com suas credenciais locais
+# Copy this file and rename it to 'db.properties'
+# Fill it in with your local credentials
 
 user=your_username
 password=your_password
 dburl=jdbc:mysql://localhost:3306/your_database
 useSSL=false
+
