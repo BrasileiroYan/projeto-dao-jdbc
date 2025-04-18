@@ -1,26 +1,25 @@
-# 🧑‍💼 Projeto de Gerenciamento de Vendedores (JDBC + MySQL)
+# 🧑‍💼 Seller Management Project (JDBC + MySQL)
 
-Este projeto Java é um sistema simples de gerenciamento de vendedores e departamentos, utilizando JDBC para conexão com o banco de dados MySQL. Foi desenvolvido com fins educacionais para praticar a integração Java + MySQL + DAO.
-
----
-
-## 🧠 Funcionalidades
-
-- Listar, inserir, atualizar e deletar vendedores
-- Listar, inserir, atualizar e deletar departamentos
-- Buscar vendedores por departamento
-- Integração com banco de dados via JDBC
-- Padrão DAO (Data Access Object)
+This Java project is a simple system for managing sellers and departments using JDBC for MySQL database integration. It was developed for educational purposes to practice Java + MySQL + DAO integration.
 
 ---
 
-## 🛠️ Tecnologias e Ferramentas
+## 🧠 Features
 
-- Java 17+ (ou compatível)
+- List, insert, update, and delete sellers
+- List, insert, update, and delete departments
+- Search sellers by department
+- Database integration using JDBC
+- DAO Pattern (Data Access Object)
+
+---
+
+## 🛠️ Technologies and Tools
+
+- Java 17+ (or compatible)
 - JDBC
 - MySQL
-- IntelliJ IDEA (ou Eclipse/VSCode)
-- Maven (opcional)
+- IntelliJ IDEA (or Eclipse/VSCode)
 
 ---
 
@@ -29,10 +28,17 @@ Este projeto Java é um sistema simples de gerenciamento de vendedores e departa
 ```
 /src
 │
-├── db.properties                # Arquivo de configuração (não incluso no Git)
-├── db.properties.example        # Modelo do arquivo de configuração
+├── db.properties                # Configuration file (not included in Git)
+├── db.properties.example        # Example config file
+│
 ├── application/
-│   ├── Program.java             # Classe principal
+│   ├── Main.java                # Main class
+│   ├── menu/
+│   │   ├── MainMenu.java
+│   │   ├── DepartmentMenu.java
+│   │   ├── SellerMenu.java
+│   │   ├── Menu.java
+│   │   └── MenuException.java
 │
 ├── model/
 │   ├── entities/
@@ -46,15 +52,17 @@ Este projeto Java é um sistema simples de gerenciamento de vendedores e departa
 │   ├── SellerDaoJDBC.java
 │   └── DepartmentDaoJDBC.java
 │
-└── db/
-    └── DB.java, DBException.java, DBIntegrityException.java
+└── database/
+    ├── DbConnection.java
+    ├── DbException.java
+    └── DbIntegrityException.java
 ```
 
 ---
 
-## 🧩 Configuração do Banco de Dados
+## 🧩 Database Setup
 
-Você precisa de um banco de dados MySQL com as seguintes tabelas:
+You need a MySQL database with the following tables:
 
 ```sql
 CREATE TABLE department (
@@ -75,61 +83,61 @@ CREATE TABLE seller (
 
 ---
 
-## ⚙️ Configurando o projeto
+## ⚙️ Project Setup
 
-1. **Clone o repositório:**
+1. **Clone the repository:**
 
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/your-username/your-repo.git
+cd your-repo
 ```
 
-2. **Configure o banco de dados:**
+2. **Set up the database:**
 
-- Crie as tabelas no seu MySQL local
-- Insira dados de teste se quiser
+- Create the tables in your local MySQL instance
+- Insert test data if desired
 
-3. **Configure o arquivo `db.properties`:**
+3. **Configure the `db.properties` file:**
 
-- Copie o arquivo de exemplo:
+- Copy the example file:
 
 ```bash
 cp db.properties.example db.properties
 ```
 
-- Edite com suas credenciais locais:
+- Edit it with your local credentials:
 
 ```properties
-user=seu_usuario
-password=sua_senha
-dburl=jdbc:mysql://localhost:3306/seu_banco
+user=your_user
+password=your_password
+dburl=jdbc:mysql://localhost:3306/your_database
 useSSL=false
 ```
 
 ---
 
-## 🚀 Como executar
+## 🚀 How to Run
 
-1. Compile o projeto com sua IDE ou com `javac`
-2. Execute a classe `Program.java`
-3. Interaja com o menu de testes no console
-
----
-
-## 🔐 Segurança
-
-⚠️ O arquivo `db.properties` está no `.gitignore` e **não é enviado para o repositório**, para evitar vazamento de credenciais.
+1. Compile the project using your IDE or javac
+2. Run the Main.java class
+3. Interact with the console menu system
 
 ---
 
-## 📌 Autor
+## 🔐 Security
 
-Desenvolvido por [Seu Nome Aqui].
-
-Se tiver dúvidas ou quiser contribuir, sinta-se à vontade para abrir uma *issue* ou *pull request*.
+⚠️ The `db.properties` file is included in `.gitignore` and **will not be pushed to the repository**, to prevent credential leaks.
 
 ---
 
-## 📜 Licença
+## 📌 Author
 
-Este projeto está sob a licença MIT.
+Developed by [Yan Pedro Façanha Brasileiro].
+
+If you have any questions or would like to contribute, feel free to open an *issue* or *pull request*.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
