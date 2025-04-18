@@ -2,6 +2,7 @@ package model.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 public class Seller implements Serializable {
@@ -87,13 +88,9 @@ public class Seller implements Serializable {
 
     @Override
     public String toString() {
-        return "Seller{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", birthDate=" + birthDate +
-                ", baseSalary=" + baseSalary +
-                ", department=" + department +
-                '}';
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return String.format("Seller %s | ID: %d | Email: %s | Birth Date: %s | Salary: %.2f | Department: %s",
+                name, id, email, birthDate.format(fmt), baseSalary, department.getName());
     }
+
 }

@@ -1,23 +1,16 @@
 package application;
 
-import model.dao.DepartmentDao;
-import model.dao.FactoryDao;
-import model.dao.SellerDao;
-import model.dao.impl.SellerDaoJDBC;
-import model.entities.Department;
-import model.entities.Seller;
+import application.menu.MainMenu;
 
-import java.time.LocalDate;
-import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        DepartmentDao departmentDao = FactoryDao.createDepartmentDao();
+        Scanner sc = new Scanner(System.in);
 
-        List<Department> departmentList = departmentDao.findAll();
+        MainMenu menu = new MainMenu(sc);
+        menu.show();
 
-        for (Department d : departmentList) {
-            System.out.println(d);
-        }
+        sc.close();
     }
 }
